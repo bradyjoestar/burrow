@@ -7,7 +7,7 @@ require (
 	github.com/OneOfOne/xxhash v1.2.8
 	github.com/alecthomas/jsonschema v0.0.0-20201129101101-7b852d451add
 	github.com/asaskevich/govalidator v0.0.0-20200907205600-7a23bdc65eef // indirect
-	github.com/bradyjoestar/life v0.2.0
+	github.com/bradyjoestar/life v0.2.1
 	github.com/btcsuite/btcd v0.21.0-beta
 	github.com/cep21/xdgbasedir v0.0.0-20170329171747-21470bfc93b9
 	github.com/cosmos/iavl v0.15.3
@@ -29,7 +29,6 @@ require (
 	github.com/lib/pq v1.9.0
 	github.com/mattn/go-sqlite3 v1.14.6
 	github.com/monax/relic v2.0.0+incompatible
-	github.com/perlin-network/life v0.0.0-20191203030451-05c0e0f7eaea // indirect
 	github.com/pkg/errors v0.9.1
 	github.com/prometheus/client_golang v1.9.0
 	github.com/prometheus/client_model v0.2.0
