@@ -7,7 +7,6 @@ require (
 	github.com/OneOfOne/xxhash v1.2.8
 	github.com/alecthomas/jsonschema v0.0.0-20201129101101-7b852d451add
 	github.com/asaskevich/govalidator v0.0.0-20200907205600-7a23bdc65eef // indirect
-	github.com/bradyjoestar/life v0.2.1
 	github.com/btcsuite/btcd v0.21.0-beta
 	github.com/cep21/xdgbasedir v0.0.0-20170329171747-21470bfc93b9
 	github.com/cosmos/iavl v0.15.3
@@ -48,6 +47,7 @@ require (
 	github.com/tmthrgd/go-hex v0.0.0-20190904060850-447a3041c3bc
 	github.com/tmthrgd/go-memset v0.0.0-20190904060434-6fb7a21f88f1 // indirect
 	github.com/tmthrgd/go-popcount v0.0.0-20190904054823-afb1ace8b04f // indirect
+	github.com/vmihailenco/msgpack v4.0.4+incompatible
 	github.com/xeipuuv/gojsonschema v1.2.0
 	github.com/xlab/treeprint v1.0.0
 	golang.org/x/crypto v0.0.0-20201221181555-eec23a3978ad
