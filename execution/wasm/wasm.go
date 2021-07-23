@@ -1,6 +1,7 @@
 package wasm
 
 import (
+	"fmt"
 	"github.com/hyperledger/burrow/acm"
 	"github.com/hyperledger/burrow/acm/acmstate"
 	"github.com/hyperledger/burrow/execution/defaults"
@@ -9,6 +10,7 @@ import (
 	"github.com/hyperledger/burrow/execution/exec"
 	"github.com/hyperledger/burrow/execution/native"
 	lifeExec "github.com/perlin-network/life/exec"
+	"time"
 )
 
 // Implements ewasm, see https://github.com/ewasm/design
@@ -56,7 +58,9 @@ func (vm *WVM) Execute(st acmstate.ReaderWriter, blockchain engine.Blockchain, e
 		EventSink:  eventSink,
 	}
 
+	fmt.Println("call begin: "+ time.Now().UTC().String())
 	output, err := vm.Contract(code).Call(state, params)
+	fmt.Println("call end: "+ time.Now().UTC().String())
 
 	if err == nil {
 		// Only sync back when there was no exception
