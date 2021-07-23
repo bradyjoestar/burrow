@@ -60,7 +60,7 @@ func (vm *WVM) Execute(st acmstate.ReaderWriter, blockchain engine.Blockchain, e
 
 	fmt.Println("call begin: "+ time.Now().UTC().String())
 	output, err := vm.Contract(code).Call(state, params)
-	fmt.Println("call end: "+ time.Now().UTC().String())
+	fmt.Println("call end  : "+ time.Now().UTC().String())
 
 	if err == nil {
 		// Only sync back when there was no exception
