@@ -57,3 +57,5 @@ require (
 	google.golang.org/protobuf v1.25.0
 	gopkg.in/yaml.v2 v2.4.0
 )
+
+replace github.com/perlin-network/life => github.com/bradyjoestar/life v0.0.0-20210723134811-8047c518fb71
