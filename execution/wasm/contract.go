@@ -38,7 +38,7 @@ func (c *Contract) Call(state engine.State, params engine.CallParams) (output []
 
 func (c *Contract) execute(state engine.State, params engine.CallParams) ([]byte, error) {
 	const errHeader = "ewasm"
-	fmt.Println("execute begin : "+time.Now().UTC().String())
+	fmt.Println("execute NewVirtualMachine begin: "+time.Now().UTC().String())
 	// Since Life runs the execution for us we push the arguments into the import resolver state
 	ctx := &context{
 		Contract: c,
@@ -53,13 +53,12 @@ func (c *Contract) execute(state engine.State, params engine.CallParams) ([]byte
 		return nil, errors.Errorf(errors.Codes.InvalidContract, "%s: motherfucker %v", errHeader, err)
 	}
 
-	fmt.Println("execute begin1: "+time.Now().UTC().String())
+	fmt.Println("execute NewVirtualMachine end  : "+time.Now().UTC().String())
 	entryID, ok := vm.GetFunctionExport("main")
 	if !ok {
 		return nil, errors.Codes.UnresolvedSymbols
 	}
 
-	fmt.Println("execute begin2: "+time.Now().UTC().String())
 	_, err = vm.Run(entryID)
 	if err != nil && errors.GetCode(err) == errors.Codes.ExecutionReverted {
 		return nil, err
@@ -68,7 +67,6 @@ func (c *Contract) execute(state engine.State, params engine.CallParams) ([]byte
 	if err != nil && errors.GetCode(err) != errors.Codes.None {
 		return nil, errors.Errorf(errors.Codes.ExecutionAborted, "%s: %v", errHeader, err)
 	}
-	fmt.Println("execute begin3: "+time.Now().UTC().String())
 
 	return ctx.output, nil
 }
