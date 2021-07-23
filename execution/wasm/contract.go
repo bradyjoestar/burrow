@@ -8,7 +8,7 @@ import (
 	"time"
 
 	"github.com/go-interpreter/wagon/wasm/leb128"
-	lifeExec "github.com/perlin-network/life/exec"
+	lifeExec "github.com/bradyjoestar/life/exec"
 	hex "github.com/tmthrgd/go-hex"
 
 	bin "github.com/hyperledger/burrow/binary"

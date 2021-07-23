@@ -8,7 +8,7 @@ import (
 	"github.com/hyperledger/burrow/execution/errors"
 	"github.com/hyperledger/burrow/execution/exec"
 	"github.com/hyperledger/burrow/execution/native"
-	lifeExec "github.com/perlin-network/life/exec"
+	lifeExec "github.com/bradyjoestar/life/exec"
 )
 
 // Implements ewasm, see https://github.com/ewasm/design
