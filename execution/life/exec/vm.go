@@ -444,6 +444,8 @@ func NewVirtualMachine(
 	if err != nil {
 		return nil, err
 	}
+	fmt.Println("functionCode length: ")
+	fmt.Println(len(functionCode))
 	fmt.Println("CompileForInterpreter end  :"+time.Now().UTC().String())
 
 	defer utils.CatchPanic(&retErr)
