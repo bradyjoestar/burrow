@@ -3,7 +3,9 @@ package compiler
 import (
 	"bytes"
 	"encoding/binary"
+	"fmt"
 	"strings"
+	"time"
 
 	"github.com/go-interpreter/wagon/disasm"
 	"github.com/go-interpreter/wagon/wasm"
@@ -257,6 +259,7 @@ func (m *Module) CompileForInterpreter(gp GasPolicy) ([]InterpreterCode, error) 
 	numFuncImports := len(ret)
 	ret = append(ret, make([]InterpreterCode, len(m.Base.FunctionIndexSpace))...)
 
+	fmt.Println("before compile:"+time.Now().UTC().String())
 	for i, f := range m.Base.FunctionIndexSpace {
 		//fmt.Printf("Compiling function %d (%+v) with %d locals\n", i, f.Sig, len(f.Body.Locals))
 		instrs, err := disasm.Disassemble(f.Body.Code)
@@ -298,6 +301,7 @@ func (m *Module) CompileForInterpreter(gp GasPolicy) ([]InterpreterCode, error) 
 			Bytes:      compiler.Serialize(),
 		}
 	}
+	fmt.Println("after  compile:"+time.Now().UTC().String())
 
 	return ret, retErr
 }

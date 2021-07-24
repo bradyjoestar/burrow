@@ -139,24 +139,19 @@ func NewModule(
 		fmt.Println("Warning: JIT support is removed.")
 	}
 
-	fmt.Println("load module begin:"+time.Now().UTC().String())
 	m, err := compiler.LoadModule(code)
 	if err != nil {
 		return nil, err
 	}
-	fmt.Println("load module end  :"+time.Now().UTC().String())
 
 	m.DisableFloatingPoint = config.DisableFloatingPoint
 
 
-	fmt.Println("CompileForInterpreter begin:"+time.Now().UTC().String())
 	functionCode, err := m.CompileForInterpreter(gasPolicy)
 	if err != nil {
 		return nil, err
 	}
 
-
-	fmt.Println("CompileForInterpreter end  :"+time.Now().UTC().String())
 
 	defer utils.CatchPanic(&retErr)
 
