@@ -59,6 +59,8 @@ func (c *Contract) execute(state engine.State, params engine.CallParams) ([]byte
 		return nil, errors.Codes.UnresolvedSymbols
 	}
 
+
+	fmt.Println("vm run begin: "+time.Now().UTC().String())
 	_, err = vm.Run(entryID)
 	if err != nil && errors.GetCode(err) == errors.Codes.ExecutionReverted {
 		return nil, err
@@ -67,6 +69,7 @@ func (c *Contract) execute(state engine.State, params engine.CallParams) ([]byte
 	if err != nil && errors.GetCode(err) != errors.Codes.None {
 		return nil, errors.Errorf(errors.Codes.ExecutionAborted, "%s: %v", errHeader, err)
 	}
+	fmt.Println("vm run end  : "+time.Now().UTC().String())
 
 	return ctx.output, nil
 }
