@@ -429,6 +429,8 @@ func NewVirtualMachine(
 	if config.EnableJIT {
 		fmt.Println("Warning: JIT support is removed.")
 	}
+	fmt.Println("==========config.EnableJIT=============")
+	fmt.Println(config.EnableJIT)
 
 	fmt.Println("LoadModule begin:"+time.Now().UTC().String())
 	m, err := compiler.LoadModule(code)
